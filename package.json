@@ -1,0 +1,47 @@
+{
+  "name": "backend-challenge-beginner",
+  "version": "1.0.0",
+  "description": "Financial API for consulting assets",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ./src ./test --ext .ts",
+    "lint:fix": "eslint ./src ./test --ext .ts --fix",
+    "start": "yarn build && node dist/src/index.js",
+    "start:dev": "ts-node-dev ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelopd20/backend-challenge-beginner.git"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "assets",
+    "market"
+  ],
+  "author": "Marcelo Pastana Duarte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcelopd20/backend-challenge-beginner/issues"
+  },
+  "homepage": "https://github.com/marcelopd20/backend-challenge-beginner#readme",
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^18.11.17",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "eslint": "^8.30.0",
+    "jest": "^29.3.1",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "module-alias": "^2.2.2"
+  }
+}
