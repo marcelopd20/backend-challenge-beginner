@@ -4,8 +4,7 @@ import bodyParser from 'body-parser';
 import { AssetController } from './controller/asset';
 import { Application } from 'express';
 
-export class SetupServer extends Server {   
-    
+export class SetupServer extends Server {
     constructor(private port = 3000) {
         super();
     }
