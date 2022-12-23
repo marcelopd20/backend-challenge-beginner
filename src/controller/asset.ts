@@ -1,8 +1,12 @@
-describe('Asset price function tests', () => {
-    it('should return a price with a just few times', async() => {
-        const { body, status } = await global.testRequest.get('/asset');
-        expect(status).toBe(200);
-        expect(body).toEqual({
+import { Controller, Get } from '@overnightjs/core';
+import { Request, Response } from 'express';
+
+@Controller('asset')
+export class AssetController {
+
+    @Get('')
+    public getAssetForLoggedUser(_: Request , res: Response): void {
+        res.send({
             "quoteResponse": {
                 "result": [
                     {
@@ -89,5 +93,5 @@ describe('Asset price function tests', () => {
                 "error": null
             }
         })
-    })
-})
+    }
+}
