@@ -11,7 +11,8 @@
     "start:dev": "ts-node-dev ./src/index.ts",
     "style:check": "prettier --check ./src/**/*.ts ./test/**/*.ts",
     "style:fix": "prettier --write ./src/**/*.ts ./test/**/*.ts",
-    "test:functional": "jest --projects ./test --forceExit --runInBand"
+    "test:functional": "jest --projects ./test --forceExit --runInBand",
+    "test:unit": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
   },
   "homepage": "https://github.com/marcelopd20/backend-challenge-beginner#readme",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/config": "^3.3.0",
     "@types/jest": "^29.2.4",
     "@types/module-alias": "^2.0.1",
     "@types/node": "^18.11.17",
@@ -47,8 +50,13 @@
   "dependencies": {
     "@overnightjs/core": "^1.7.6",
     "@types/express": "^4.17.15",
+    "axios": "^1.2.1",
     "body-parser": "^1.20.1",
+    "config": "^3.3.8",
     "express": "^4.18.2",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.4",
+    "node-cache": "^5.1.2",
+    "pino": "^8.8.0"
   }
 }

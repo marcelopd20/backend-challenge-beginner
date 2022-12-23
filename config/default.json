@@ -1,0 +1,10 @@
+{
+    "App": {
+        "resources":{
+            "YahooFinance": {
+                "apiUrl": "https://yfapi.net/v6/finance/",
+                "apiKey": "FiOcVHipN4HBG7IiK9OR7YKpxMPb6tr3seJ8wmX3"
+            }
+        }
+    }
+}
