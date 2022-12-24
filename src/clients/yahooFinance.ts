@@ -87,14 +87,9 @@ export interface AssetName{
     symbol: string;
     regularMarketPrice: number;                
     currency: string;
-    regularMarketChange: number;
-    regularMarketDayHigh: number;
-    regularMarketDayRange: string;
-    regularMarketDayLow: number;
-    regularMarketPreviousClose: number;
-    regularMarketOpen: number;
-    longName: string;
-    financialCurrency: string;
+    typeDisp: string;
+    market: string;
+    shortName: string;
 }
 
 export class YahooFinanceUnexpectedResponseError extends InternalError {
@@ -215,14 +210,9 @@ export class YahooFinance {
                 symbol: name.symbol,
                 regularMarketPrice: name.regularMarketPrice,
                 currency: name.currency,
-                regularMarketChange: name.regularMarketChange,
-                regularMarketDayHigh: name.regularMarketDayHigh,
-                regularMarketDayRange: name.regularMarketDayRange,
-                regularMarketDayLow: name.regularMarketDayLow,
-                regularMarketPreviousClose: name.regularMarketPreviousClose,
-                regularMarketOpen: name.regularMarketOpen,
-                longName: name.longName,
-                financialCurrency: name.financialCurrency
+                typeDisp: name.typeDisp,
+                market: name.market,
+                shortName: name.shortName
             }))
         }
         
@@ -231,14 +221,9 @@ export class YahooFinance {
         name.symbol &&
         name.regularMarketPrice &&
         name.currency &&
-        name.regularMarketChange &&
-        name.regularMarketDayHigh &&
-        name.regularMarketDayRange &&
-        name.regularMarketDayLow &&
-        name.regularMarketPreviousClose &&
-        name.regularMarketOpen &&
-        name.longName &&
-        name.financialCurrency
+        name.typeDisp &&
+        name.market &&
+        name.shortName
     )
    } 
 }

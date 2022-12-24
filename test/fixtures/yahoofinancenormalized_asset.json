@@ -3,16 +3,11 @@
         "result": [
             {
                 "symbol": "ITUB3.SA",
+                "typeDisp": "Ação",
                 "regularMarketPrice": 21.85,                
                 "currency": "BRL",
-                "regularMarketChange": 0.2800007,
-                "regularMarketDayHigh": 21.88,
-                "regularMarketDayRange": "21.52 - 21.88",
-                "regularMarketDayLow": 21.52,
-                "regularMarketPreviousClose": 21.57,
-                "regularMarketOpen": 21.57,
-                "longName": "Itaú Unibanco Holding S.A.",
-                "financialCurrency": "BRL"
+                "market": "br_market",
+                "shortName": "ITAUUNIBANCOON  EJ  N1"           
             }
         ],
         "error": null

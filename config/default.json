@@ -1,5 +1,8 @@
 {
     "App": {
+        "database": {
+            "mongoUrl": "mongodb+srv://investimentos_root:root@cluster0.zw8xx1b.mongodb.net/?retryWrites=true&w=majority"
+        },
         "resources":{
             "YahooFinance": {
                 "apiUrl": "https://yfapi.net/v6/finance/",
