@@ -7,5 +7,4 @@ export const connect = async (): Promise<void> =>  {
     await mongooseConnect(dbConfig.get('mongoUrl')); 
 };
 
-
 export const close = (): Promise<void> => connection.close();

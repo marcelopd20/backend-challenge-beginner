@@ -2,7 +2,7 @@ import { InternalError } from '@src/util/errors/internal-error';
 import * as HTTPUtil from '@src/util/request';
 import config, { IConfig } from 'config';
 import CacheUtil from '@src/util/cache';
-import logger from '@src/logger';
+//import logger from '@src/logger';
 
 export interface YahooFinanceResult {
     readonly symbol: string;
@@ -183,7 +183,7 @@ export class YahooFinance {
             return;
         }
 
-        logger.info(`Using cache to return asset name for key: ${key}`);
+        //logger.info(`Using cache to return asset name for key: ${key}`);
         return assetNameFromCache;
     }
 
@@ -195,11 +195,11 @@ export class YahooFinance {
         key: string,
         assetName: AssetName[]
     ): boolean {
-        logger.info(`Updating cache to return asset name for key: ${key}`)
+        //logger.info(`Updating cache to return asset name for key: ${key}`)
         return this.cacheUtil.set(
             key,
             assetName,
-            yahooFinanceResourceConfig.get('cacheTtl')
+            //yahooFinanceResourceConfig.get('cacheTtl')
         )
     }
 
