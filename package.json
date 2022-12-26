@@ -9,6 +9,8 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.prod.json && tsc-alias",
+    "lint": "eslint ./src ./src/tests --ext .ts",
+    "lint:fix": "eslint ./src ./src/tests --ext .ts --fix",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
     "test": "jest --coverage --detectOpenHandles --no-cache",
     "start": "node -r ts-node ./.build/src/app.js"
