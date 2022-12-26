@@ -1,12 +1,16 @@
 import 'dotenv'
 import express from 'express'
 import { Environments } from './config/environment'
+import { routes } from './routes/routes'
 
 // encapsula expressa
 const app = express()
 
 app.use(express.json())
+// passa caminho para rotas
+app.use(Environments.API_BASE_PATH, routes)
 
+// monsta var com número da porta
 const port: number = Environments.SERVER_PORT
 // liga servidor
 app.listen(port, async () => {
