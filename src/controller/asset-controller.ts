@@ -20,7 +20,7 @@ export default class AssetController {
   // 1. Usuário adiciona um ativo em sua lista de acompanhamento.
   public async addAsset(request: Request, response: Response): Promise<void> {
     // valida campos
-    const addAssetDto: AddAssetDto = new AddAssetDto(request.body?.symbol, request.body?.userId)
+    const addAssetDto: AddAssetDto = new AddAssetDto(request.body?.userId, request.body?.symbol)
     // adiciona efetivamente, usecase passando Dto validado
     const result: AssetResponseDto = await this.addAssetUseCase.add(addAssetDto)
     // retorna sucesso

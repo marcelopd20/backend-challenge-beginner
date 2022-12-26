@@ -51,7 +51,7 @@ export default class YahooFinanceApi {
     } catch (error: unknown) {
       // passa exceção ou erro interno, se problema com client
       if (error instanceof AxiosError) {
-        throw new HttpException(error.response?.status || 500, error.message)
+        throw new HttpException(error.response?.status ?? 500, error.message)
       }
       // passa erro
       if (error instanceof HttpException) {

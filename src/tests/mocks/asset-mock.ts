@@ -8,7 +8,7 @@ const defaultUserId: string = randomUUID()
 // função que retorna mock de consulta de bd contendo id, symbol userId
 export function getAssetMock(id?: ObjectId): Asset {
   return {
-    _id: id?.toString() || new ObjectId().toString(),
+    _id: id?.toString() ?? new ObjectId().toString(),
     symbol: 'test',
     userId: defaultUserId
   }

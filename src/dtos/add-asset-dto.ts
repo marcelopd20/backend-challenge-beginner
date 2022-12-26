@@ -2,7 +2,10 @@ import HttpException from '~/exceptions/http-exception'
 // cria classe para validar dados transferidos
 export default class AddAssetDto {
   // constroi classe passando parametros e chamando método validador
-  public constructor(public readonly userId: string, public readonly symbol: string) {
+  public constructor(
+    public readonly userId: string, 
+    public readonly symbol: string
+    ) {
     this.validateField(symbol, 'symbol')
     this.validateField(userId, 'userId')
   }

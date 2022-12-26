@@ -24,7 +24,6 @@ const assetController: AssetController = new AssetController(
   getAssetsUseCase,
   getAssetBySymbolUseCase
 )
-
 // cria rota para addAsset
 assetRoutes.post('/', adapt(assetController.addAsset.bind(assetController)))
 // cria rota para getAssets, lista do usuário

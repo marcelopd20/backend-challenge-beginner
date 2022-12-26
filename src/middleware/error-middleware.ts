@@ -18,7 +18,7 @@ export function errorMiddleware(error: unknown, _: Request, response: Response, 
     // cria erro interno do servidor
     const errorDto: ErrorDto = {
       code: '500',
-      message: Reflect.get(error as object, 'message') || 'Internal server Error'
+      message: Reflect.get(error as object, 'message') ?? 'Internal server Error'
     }
     response.status(500).json(errorDto)
   } catch (error) {
