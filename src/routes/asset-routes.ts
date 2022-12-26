@@ -1,7 +1,7 @@
-import { Router } from "express";
-import YahooFinanceApi from "~/api/yahoo-finance-api";
-import AssetController from "~/controller/asset-controller";
-import GetAssetBySymbolUseCase from "~/usecases/get-asset-by-symbol-use-case";
+import { Router } from 'express'
+import YahooFinanceApi from '~/api/yahoo-finance-api'
+import AssetController from '~/controller/asset-controller'
+import GetAssetBySymbolUseCase from '~/usecases/get-asset-by-symbol-use-case'
 
 export const assetRoutes = Router()
 // chama api do Yahoo
@@ -11,5 +11,5 @@ const getAssetBySymbolUseCase: GetAssetBySymbolUseCase = new GetAssetBySymbolUse
 // chama controller passando parametros das função chamadas
 const assetController: AssetController = new AssetController(getAssetBySymbolUseCase)
 
-//cria rota para getAsset
+// cria rota para getAsset
 assetRoutes.get('/:symbol', assetController.getAsset.bind(assetController))

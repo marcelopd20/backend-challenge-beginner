@@ -37,6 +37,7 @@
       "radix": "off",
       "consistent-return": "off",
       "@typescript-eslint/no-inferrable-types": "off",
-      "import/no-named-default": "off"
+      "import/no-named-default": "off",
+      "no-underscore-dangle": "off"
     }
   }
