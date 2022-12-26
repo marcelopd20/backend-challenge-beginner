@@ -1,9 +1,0 @@
-{
-    "App": {
-        "resources":{
-            "YahooFinance": {
-                "apiKey": "test-token"
-            }
-        }
-    }
-}

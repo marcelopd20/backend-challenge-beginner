@@ -70,7 +70,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -97,8 +96,17 @@ dist
 # FuseBox cache
 .fusebox/
 
-# DynamoDB Local files
-.dynamodb/
-
 # TernJS port file
 .tern-port
+
+.build
+
+# customer
+dist
+package-lock.json
+yarn.lock
+code_coverage
+
+# custom
+.vscode
+docker
