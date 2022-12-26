@@ -1,6 +1,6 @@
-//cria tipo para erro
+// cria tipo para erro
 type ErrorDto = {
-    code: string
-    message: string
+  code: string
+  message: string
 }
 export default ErrorDto

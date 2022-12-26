@@ -19,11 +19,11 @@ export default class AssetController {
 
   // 1. Usuário adiciona um ativo em sua lista de acompanhamento.
   public async addAsset(request: Request, response: Response): Promise<void> {
-    //valida campos
+    // valida campos
     const addAssetDto: AddAssetDto = new AddAssetDto(request.body?.symbol, request.body?.userId)
-    //adiciona efetivamente, usecase passando Dto validado
+    // adiciona efetivamente, usecase passando Dto validado
     const result: AssetResponseDto = await this.addAssetUseCase.add(addAssetDto)
-    //retorna sucesso
+    // retorna sucesso
     response.status(200).json(result)
   }
 
@@ -40,7 +40,7 @@ export default class AssetController {
     response.status(200).json(result)
   }
 
-  // 3. Usuário consulta a cotação de um ativo.  
+  // 3. Usuário consulta a cotação de um ativo.
   public async getAsset(request: Request, response: Response) {
     // recebe symbol
     const symbol = request?.params?.symbol

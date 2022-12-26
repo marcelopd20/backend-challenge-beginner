@@ -27,43 +27,43 @@ beforeEach(() => {
 })
 // testa addAsset
 describe('addAsset()', () => {
-  //testa suceso da função, retorna tipo Asset 
+  // testa suceso da função, retorna tipo Asset
   test('Sucess', async () => {
     // arrange
-    //moca objid
+    // moca objid
     const expectedInsertedId: ObjectId = new ObjectId()
-    //moca asset
+    // moca asset
     const asset: Asset = getAssetMock(expectedInsertedId)
-    //moca insertone chamando uma unica vez, passando id e aprovando
+    // moca insertone chamando uma unica vez, passando id e aprovando
     insertOneMock.mockResolvedValueOnce({
       insertedId: expectedInsertedId,
       acknowledged: true
     })
-    //act
-    //cria addAsset passando mock
+    // act
+    // cria addAsset passando mock
     const result: Asset = await repository.addAsset(addAssetDtoMock)
-    //assert
-    //chama função mocada, testa retorno
+    // assert
+    // chama função mocada, testa retorno
     expect(insertOneMock).toHaveBeenCalledTimes(1)
-    //testa retorno da addAsset, obj { symbol, id, userId }
-    expect(result._id).toStrictEqual(asset._id) 
-    expect(result.symbol).toStrictEqual(asset.symbol) 
-    expect(result.userId).toStrictEqual(asset.userId) 
+    // testa retorno da addAsset, obj { symbol, id, userId }
+    expect(result._id).toStrictEqual(asset._id)
+    expect(result.symbol).toStrictEqual(asset.symbol)
+    expect(result.userId).toStrictEqual(asset.userId)
   })
-  //testa Exceção de addAsset()
+  // testa Exceção de addAsset()
   test('Fail to save', async () => {
     // arrange
-    //moca insertone chamando uma unica vez, passa reconhecimento falso
+    // moca insertone chamando uma unica vez, passa reconhecimento falso
     jest.mocked(insertOneMock).mockResolvedValueOnce({
       acknowledged: false
     })
-    //act
-    //callback da funçao
+    // act
+    // callback da funçao
     const resultCb = () => repository.addAsset(addAssetDtoMock)
-    //assert
-    //chama função mocada, testa retorno de erro
-    await expect(resultCb).rejects.toThrowError(HttpException) 
-    //testa função
+    // assert
+    // chama função mocada, testa retorno de erro
+    await expect(resultCb).rejects.toThrowError(HttpException)
+    // testa função
     expect(insertOneMock).toHaveBeenCalledTimes(1)
   })
 })
@@ -76,9 +76,9 @@ describe('findAssets()', () => {
     const asset: Asset = getAssetMock()
     const cursorMock = {
       // moca asset
-      map: jest.fn().mockReturnValue({       
+      map: jest.fn().mockReturnValue({
         // passa para array asset mocada
-        toArray: jest.fn().mockResolvedValue([asset])    
+        toArray: jest.fn().mockResolvedValue([asset])
       })
     }
     // moca valor de retorno

@@ -15,9 +15,9 @@ const port: number = Environments.SERVER_PORT
 // liga servidor
 app.listen(port, async () => {
   console.log(`[${Environments.API_BASE_PATH}] Server running on port ${port}`)
-  //chama conexão com banco
+  // chama conexão com banco
   await mongoClient.connect()
-  console.log('MongoDB connected')  
+  console.log('MongoDB connected')
 })
-//exporta app
+// exporta app
 export { app }

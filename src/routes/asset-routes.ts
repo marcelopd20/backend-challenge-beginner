@@ -8,22 +8,26 @@ import GetAssetsUseCase from '~/usecases/get-assets-use-case'
 import { adapt } from './route-adapter'
 
 export const assetRoutes = Router()
-//chama repositorio
+// chama repositorio
 const assetRepository: AssetRepository = new AssetRepository()
 // chama api do Yahoo
 const yahooFinanceApi: YahooFinanceApi = new YahooFinanceApi()
-//chama AddAsset, passa repositorio e api
+// chama AddAsset, passa repositorio e api
 const addAssetUseCase: AddAssetUseCase = new AddAssetUseCase(assetRepository, yahooFinanceApi)
-//chama GetAssets, lista do usuario, passa repositorio e api
+// chama GetAssets, lista do usuario, passa repositorio e api
 const getAssetsUseCase: GetAssetsUseCase = new GetAssetsUseCase(assetRepository, yahooFinanceApi)
 // chama caso de uso GetAsset , lista do usuario, passa repositorio e api como parametros
 const getAssetBySymbolUseCase: GetAssetBySymbolUseCase = new GetAssetBySymbolUseCase(yahooFinanceApi)
 // chama controller passando parametros das função chamadas
-const assetController: AssetController = new AssetController(addAssetUseCase, getAssetsUseCase, getAssetBySymbolUseCase)
+const assetController: AssetController = new AssetController(
+  addAssetUseCase,
+  getAssetsUseCase,
+  getAssetBySymbolUseCase
+)
 
-//cria rota para addAsset
+// cria rota para addAsset
 assetRoutes.post('/', adapt(assetController.addAsset.bind(assetController)))
-//cria rota para getAssets, lista do usuário
+// cria rota para getAssets, lista do usuário
 assetRoutes.get('/', adapt(assetController.getAssets.bind(assetController)))
 // cria rota para getAsset
 assetRoutes.get('/:symbol', adapt(assetController.getAsset.bind(assetController)))

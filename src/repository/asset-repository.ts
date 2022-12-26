@@ -18,26 +18,28 @@ export default class AssetRepository {
 
   // adiciona Asset no Banco, passando o registro no banco, id, userId e asset
   public async addAsset(asset: AddAssetDto): Promise<Asset> {
-    //conecta com db e adiciona coleção ao bd
+    // conecta com db e adiciona coleção ao bd
     const result: InsertOneResult = await this.assetCollection.insertOne(asset)
-    //valida resultado
+    // valida resultado
     if (!result?.acknowledged) {
-        //passa exceção
-        throw new HttpException(422, 'Fail to save on database')
+      // passa exceção
+      throw new HttpException(422, 'Fail to save on database')
     }
-    //em caso de sucesso passa obj tipo asset(symbol, userid, id)
+    // em caso de sucesso passa obj tipo asset(symbol, userid, id)
     return { symbol: asset.symbol, userId: asset.userId, _id: result?.insertedId?.toString() }
   }
 
   // busca assets no de lista do usuário
   public async findAssets(userId: string): Promise<Asset[]> {
     // retona coleção
-    return this.assetCollection
+    return (
+      this.assetCollection
         // busca id do usuário no banco
         .find({ userId })
         // itera sobre todos registros do bd
-        .map(({ _id, symbol, userId }) => ({ symbol, userId, _id: _id.toString()}))
+        .map(({ _id, symbol, userId }) => ({ symbol, userId, _id: _id.toString() }))
         // passa para array
         .toArray()
+    )
   }
 }
