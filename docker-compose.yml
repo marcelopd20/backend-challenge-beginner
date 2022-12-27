@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.9'
 services:
   mongo:
     image: mongo:latest
@@ -8,3 +8,17 @@ services:
       MONGO_INITDB_DATABASE: assets
     ports:
       - 27017:27017
+    command: mongod --quiet --logpath /dev/null 
+  api:
+    build: .
+    ports:
+      - "3000:3000"    
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://root:root@backend-challenge-beginner-mongo-1:27017/?readPreference=primary&ssl=false&directConnection=true
+      DB_NAME: assets
+    depends_on:
+      - mongo   
+
+
+
