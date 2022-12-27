@@ -1,6 +1,5 @@
 import YahooAssetDto from '~/dtos/yahoo-asset-dto'
 
-// exporta mock de yahooAssetDto
 export const yahooAssetDto: YahooAssetDto = {
   currency: 'USD',
   market: 'us_market',
