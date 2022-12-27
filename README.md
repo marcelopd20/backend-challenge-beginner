@@ -1,72 +1,64 @@
-# Backend | Desafio Técnico
+# **API WEB - Desafio técnico - Backend**
+**Marcelo Pastana Duarte**  
+marcelopd20@gmail.com  
+27/12/2022
 
-## Introdução
+---
 
-Este projeto tem como objetivo descrever o desafio de código para candidatos que queiram se aplicar para vaga de desenvolvedor backend na Ideal CTVM.
+Foi desenvolvido com **NodeJs**, **TypeScript**, **MongoDB** e **Docker**.
 
-## Objetivo
+---
+## **INICIALIZAÇÃO DA APLICAÇÃO:**
+Fazer clone do repositório:
+```
+git clone https://github.com/marcelopd20/backend-challenge-beginner.git
+```
+- Adicionar **.env** e configurá-lo conforme exemplo do repositório, passando chave da API **[Yahoo! Finance](http://yahoofinanceapi.com)**
+- Porta **3000** utilizada pela aplicação e **27017** pela API.
+- Necessário ter docker instalado, para docker compose:
+```
+docker-compose up
+```
+---
+## **REQUISIÇÕES NA APLICAÇÃO:**
+Requisições na API, porta **3000**: 
 
-O objetivo do desafio será escrever uma API Web que possibilita aos usuários criarem sua lista de acompanhamento de ativos para posterior consulta de suas cotações (preço do ativo). Esta API será utilizada pelo time de front-end na criação de uma tela bem bacana para disponibilizarmos a funcionalidade em nosso site.
-
-## Estórias
+**http://localhost:3000/assets-watch-api/v1/assets/**
 
 ### 1. Usuário adiciona um ativo em sua lista de acompanhamento.
-
-O usuário poderá adicionar qualquer ativo válido em sua lista de acompanhamento para posterior consulta.
-
-Exemplos de ativos:
-
+#### **POST**
 ```
-PBR, APPL, GOGL
+/
 ```
-
+Enviar json pelo body contendo, userId e symbol:
+```
+{
+  "userId": "string"
+  "symbol": "string"
+}
+```
 ### 2. Usuário consulta sua lista de acompanhamento.
-
-O usuário poderá consultar a sua lista de acompanhamento, a qual deverá retornar os ativos adicionados juntamente com a sua respectiva cotação.
+#### **GET**
+```
+/?userId=:userId
+```
+Substituir `:userId` por id de usuário cadastrado para resgatar ativos da lista.
 
 
 ### 3. Usuário consulta a cotação de um ativo.
-
-O usuário poderá consultar a cotação de um ativo, mesmo ele não fazendo parte da sua lista de acompanhamento.
-
-
-## Provedor de Cotações
-
-Para a conclusão do desafio, você poderá utilizar a API de cotações do [Yahoo! Finance](http://yahoofinanceapi.com) ou qualquer outra de sua preferência (inclusive de criptomoedas, se assim preferir). 
-
-Exemplo de chamada da API do Yahoo! Finance:
-
-``` 
-curl -X 'GET' \
-  'https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL' \
-  -H 'accept: application/json' \
-  -H 'X-API-KEY: [xxxxx SUA API KEY xxxxxx]'
+#### **GET**
 ```
+/:ativo
+```    
 
-Essa requisição retorna o preço da APPL (Apple).
+Substituir `:ativo` por , ativo a ser col (**itub3.sa**, **petr3.sa**,  **AAPL**, **BTC-USD**, **EURUSD=X** )
 
-## Regras
-
-* API deve ser implementada usando REST, GraphQL ou gRPC
-* Use a linguagem de programação na qual tenha mais experiência/se sinta confortável
-* Nomes de variaveis, métodos, classes/estruturas e comentários devem ser feitos em inglês
-* Não há restrições com relação a soluções de storage de dados
-* Adicione o README.md no seu repositório
-
-## O que iremos focar ao analisar o seu código?
-
-* Qualidade do código
-  * Organização de código e legibilidade
-  * Principios SOLID
-  * Design patterns (se aplicável)
-* Proatividade em fazer perguntas, pesquisas e tomada de decisões
-
-## Bônus
-
-* Unit tests
-* Utilização de container docker
-* Mecanismo de autenticação e autorização
-
-## Entrega
-
-O código do desafio deverá estar publicado em um repositório **privado** no GitHub. O usuário ```fandradesantos``` deverá ser adicionado ao repo para visualização do código.
+### Retorna Json contendo:
+```
+currency: Moeda
+market: Mercado
+regularMarketPrice: Preço no mercado regular
+shortName: Nome/Identificação
+symbol: Código do ativo
+typeDisp: Tipo de ativo
+```
