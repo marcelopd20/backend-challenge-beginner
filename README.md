@@ -14,7 +14,7 @@ Fazer clone do repositório:
 git clone https://github.com/marcelopd20/backend-challenge-beginner.git
 ```
 - Adicionar **.env** e configurá-lo conforme exemplo do repositório, passando chave da API **[Yahoo! Finance](http://yahoofinanceapi.com)**
-- Porta **3000** utilizada pela aplicação e **27017** pela API.
+- Porta **3000** utilizada pela aplicação e **27017** porta do banco de dados.
 - Necessário ter docker instalado, para docker compose:
 ```
 docker-compose up
